@@ -2,28 +2,32 @@ import { useState,useEffect } from 'react'
 import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
 import './App.css'
+import Home from './Home'
+import Login from './Login'
+import { createBrowserRouter,RouterProvider } from 'react-router-dom'
 
 function App() {
-  const [count, setCount] = useState(0)
-  const [username, setusername] = useState('')
+  
 
-  useEffect(() => {
-    console.log('adnan')
+
+  const router = createBrowserRouter(
+  [
+{
+  path: '/',
+  element: <Home />,
+},
+{
+path : '/login',
+element:<Login/>
+}
   
-    
-  }, [count])
-  
+    ]
+  )
 
 
   return (
 
-    <>
-    <form>
-      <input value={username} on type="text"  />
-      <input type="text" />
-    </form>
-     
-    </>
+   <RouterProvider router={ router }/>
   )
 }
 
