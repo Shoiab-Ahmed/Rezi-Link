@@ -21,6 +21,7 @@ import bg from './assets/bg.png'
 import { FaFacebook } from "react-icons/fa";
 import { FaInstagram } from "react-icons/fa";
 import { FaLinkedin } from "react-icons/fa";
+import {useNavigate} from 'react-router-dom'
 
 
 
@@ -34,6 +35,7 @@ import { FaLinkedin } from "react-icons/fa";
 
 
 const Home = () => {
+  const navigate = useNavigate()
   return (
     <div className=' w-[90%] mx-auto '>
       <div className='flex gap-[10px]  my-[40px] justify-between w-[90%] mx-auto'>
@@ -42,7 +44,7 @@ const Home = () => {
           <div className='flex flex-col gap-[40px] mt-[120px]'>
             <h1 className="text-[40px] w-[630px] h-[104px] leading-[130%]">Find a comfortable and  <br /> elegant place to stay </h1>
             <p className='w-[600px] h-[90px] text-[20px] leading-[150%]'>Search for a comfortable place to live with your new family and your child. Increase the harmony of your family and wife to be at home</p>
-            <button className='w-[197px] h-[66px] rounded-[12px]  bg-[#A0CAF5]'>Get Started</button>
+            <button onClick={()=>{navigate('/signup')}} className='w-[197px] h-[66px] rounded-[12px]  bg-[#A0CAF5]'>Get Started</button>
           </div>
           <div className='mt-[100px] flex flex-col gap-3' >
             <h1 className='text-[24px] leading-[150%]'>Our Partners :</h1>
