@@ -1,9 +1,18 @@
 import React from 'react'
+import banner from './assets/banner.png'
 
 const Signup = () => {
   return (
-    <div>
-        <h1>Sign up page</h1>
+    <div className='flex justify-between'>
+       
+        <div className='w-[30%]'>
+          <h1>Rezi-Link</h1>
+          
+        </div>
+        <div className='w-[70%]'>
+          <img src={banner} alt="" />
+
+        </div>
       
     </div>
   )
