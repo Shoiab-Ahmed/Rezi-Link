@@ -7,9 +7,9 @@ const Navbar = () => {
     <div>
           <nav className="w-full flex justify-between items-center">
     
-    <h1 className="text-[24px] font-bold">REZI-LINK</h1>
+    <h1 className="text-[24px] poppins-medium">REZI-LINK</h1>
 
-    <ul className="flex  text-[18px] px-4 py-1 gap-10 ">
+    <ul className="flex  text-[18px] px-4 py-1 gap-10 poppins-normal ">
       <li className="px-3 py-1 "><NavLink to='/'> Home</NavLink> </li>
       <li className="px-3 py-1 ">Features</li>
       <li className="px-3 py-1 "><NavLink to='/signup'>SignUp</NavLink></li>
