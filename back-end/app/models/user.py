@@ -1,9 +1,3 @@
-from pymongo import MongoClient
-import os
-from dotenv import load_dotenv
+from app.utils.database import db
 
-load_dotenv()
-
-client = MongoClient(os.getenv("MONGO_URI"))
-db = client["Shoiab"]
-users_collection = db["users"]
+users_collection = db["users"]  # Collection reference
