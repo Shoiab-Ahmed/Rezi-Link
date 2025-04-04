@@ -33,7 +33,6 @@ def register():
         "username": data["username"],
         "email": data["email"],
         "password": hashed_password,
-        "phone_number": data.get("phone_number", ""),  # Default empty if not provided
         "role": role
     })
 

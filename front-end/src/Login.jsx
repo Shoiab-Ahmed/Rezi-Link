@@ -2,8 +2,29 @@ import React from 'react'
 import { FcGoogle } from "react-icons/fc";
 import { FaFacebook } from "react-icons/fa6";
 import banner2 from  './assets/banner2.png'
+import axios from 'axios'
+import { useNavigate } from 'react-router-dom';
+import { useState } from 'react';
 
 const login = () => {
+  const [email, setEmail] = useState("")
+  const [password, setPassword] = useState("")
+  const navigate = useNavigate()
+
+  const handleLogin=async(e)=>{
+    e.preventDefault()
+    try{
+      const response = await axios.post("http://127.0.0.1:5000/users/login",{
+        email, password
+      })
+      localStorage.setItem("token",response.data.token)
+      navigate('/dashboard')
+    }  
+    catch(e) {
+      console.log("Cannot Login",e)
+    }
+  }
+  
   return (
     <div>
           <div className='flex flex-col lg:flex-row w-full h-screen'>
@@ -29,17 +50,20 @@ const login = () => {
                 </div>
       
                 <p className='text-center text-gray-500 mb-4 poppins-normal'>Or continue with email</p>
+
+
+                <form onSubmit={handleLogin}>
       
                 
       
                 <div className='mb-4'>
                   <label className="block text-sm poppins-medium mb-1">Email</label>
-                  <input type="email" className="w-full p-2 border border-gray-300 rounded-lg poppins-normal" placeholder="Enter your email" />
+                  <input type="email" value={email} onChange={(e)=>setEmail(e.target.value)} className="w-full p-2 border border-gray-300 rounded-lg poppins-normal" placeholder="Enter your email" />
                 </div>
       
                 <div className='mb-4'>
                   <label className="block text-sm poppins-medium mb-1">Password</label>
-                  <input type="password" className="w-full p-2 border border-gray-300 rounded-lg poppins-normal" placeholder="Enter your password" />
+                  <input type="password" value={password} onChange={(e)=>setPassword(e.target.value)} className="w-full p-2 border border-gray-300 rounded-lg poppins-normal" placeholder="Enter your password" />
                 </div>
       
                 <div className="flex justify-between items-center mb-4">
@@ -49,7 +73,8 @@ const login = () => {
                   <a href="#" className="text-sm poppins-medium ">Forgot Password?</a>
                 </div>
       
-                <button className="w-full bg-black text-white py-3 rounded-lg poppins-bold">Sign Up</button>
+                <button className="w-full bg-black text-white py-3 rounded-lg poppins-bold cursor-pointer">Login</button>
+                </form>
       
                 <div className='mt-6 text-center text-gray-600'>
                   <p className='poppins-normal'>Already have an account? <span className='text-black poppins-normal cursor-pointer'>Login</span></p>
