@@ -1,10 +1,17 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import user from '../assets/user.png'
+import axios from 'axios'
 
 const UserNav = () => {
+
+
+    
+
+
+
   return (
     <div>
-        <nav className="w-[95%] h-[70px] mx-auto mt-[20px] bg-[#D5D5D5]/80 flex justify-between items-center rounded-[20px] p-[20px]">
+        <nav className="w-full h-[70px] mx-auto mt-[20px] bg-[#f5f3f3] flex justify-between items-center rounded-[20px] p-[20px]">
             <h1 className="text-[24px] poppins-bold">REZI-LINK</h1>
             <div className=' bg-black h-[40px] mt-[5px] rounded-[20px] ' >
                 <ul className='flex justify-between items-center text-white h-full px-4 gap-4  poppins-normal'>
