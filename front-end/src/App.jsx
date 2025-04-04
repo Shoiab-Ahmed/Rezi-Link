@@ -6,6 +6,7 @@ import Home from './Home'
 import Login from './Login'
 import Signup from './Signup'
 import { createBrowserRouter,RouterProvider } from 'react-router-dom'
+import Dashboard from './Dashboard'
 
 function App() {
   
@@ -25,6 +26,10 @@ element:<Login/>
 path : '/signup',
 element:<Signup/>
 },
+{
+  path : '/dashboard',
+  element:<Dashboard/>
+  },
 
   
     ]
