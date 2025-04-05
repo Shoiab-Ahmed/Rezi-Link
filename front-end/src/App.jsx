@@ -7,6 +7,7 @@ import Login from './Login'
 import Signup from './Signup'
 import { createBrowserRouter,RouterProvider } from 'react-router-dom'
 import Dashboard from './Dashboard'
+import Property from './Property'
 
 function App() {
   
@@ -29,6 +30,10 @@ element:<Signup/>
 {
   path : '/dashboard',
   element:<Dashboard/>
+  },
+{
+  path : '/property/:id',
+  element:<Property/>
   },
 
   
