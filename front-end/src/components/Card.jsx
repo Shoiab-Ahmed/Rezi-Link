@@ -3,21 +3,37 @@ import { useEffect,useState } from 'react'
 import axios from 'axios'
 import { useNavigate } from 'react-router-dom'
 
-const Card = () => {
+const Card = ({city}) => {
 
     const navigate = useNavigate()
     const [picture, setPicture] = useState("https://imagecdn.99acres.com/media1/24795/4/495904524M-1717478704466.jpg")
     const [data, setData] = useState([])
-    useEffect(() => {
+
+  
+   
 
 
 
         const fetchdata = async () => {
             try {
-                const response = await axios.get('http://127.0.0.1:5000/properties')
+                const response = await axios.get('http://localhost:5000/properties/grouped-by-city')
+                console.log(response.data.Bangalore)
 
+                if(city === "Bangalore"){
+                    setData(response.data.Bangalore)
+                }
+              if(city === "Mumbai"){
+                    setData(response.data.Mumbai)
+                }
+               if(city === "Delhi"){
+                    setData(response.data.Delhi)
+                }
+               if(city === "Hyderabad"){
+                    setData(response.data.Hyderabad
+                    )
+                }
                 
-                setData(response.data)
+                
             }
             catch (error) {
                 console.log("Error while fetching the data", error)
@@ -30,15 +46,15 @@ const Card = () => {
         
 
 
-    }, [])
+    
     console.log(data)
     return (
-        <div className=' flex flex-wrap justify-between mt-[30px] gap-[30px]'>
-            {data.map((item, index) => {
+        <div className=' flex flex-wrap justify-between  gap-[30px]'>
+            {data.slice(0,3).map((item, index) => {
                 return (
                     <div key={index}  className='bg-[#f5f3f3] w-[30%] rounded-[20px] flex flex-col justify-between gap-[30px] p-[20px]'>
-                        <img src={picture} alt="" className='h-[400px]  max-h-[200px] w-full object-cover rounded-t-[10px]'/>
-                        <p className='poppins-bold text-[25px]'>{item.title} </p>
+                        <img src={item.images[0]?item.images[0]:picture} alt="" className='h-[400px]  max-h-[200px] w-full object-cover rounded-t-[10px]'/>
+                        <p className='poppins-bold text-[25px] overflow-ellipsis overflow-hidden whitespace-nowrap'>{item.title} </p>
                         <p className='poppins-medium text-gray-700 text-[16px]'>{item.description}</p>
                         <div className='flex justify-between items-center'>
                         <p className='poppins-bold text-[16px]'>{item.price}<span>Rs</span></p>

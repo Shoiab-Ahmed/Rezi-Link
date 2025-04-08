@@ -25,3 +25,20 @@ def get_properties():
         prop["_id"] = str(prop["_id"])
 
     return jsonify(properties), 200
+
+
+@property_controller.route("/properties/grouped-by-city", methods=["GET"])
+def get_properties_grouped_by_city():
+    properties = property_repo.get_all_properties()
+    grouped = {}
+
+    for prop in properties:
+        prop["_id"] = str(prop["_id"])  # Convert ObjectId to string
+        city = prop.get("location", {}).get("city", "Unknown")
+
+        if city not in grouped:
+            grouped[city] = []
+        grouped[city].append(prop)
+
+    return jsonify(grouped), 200
+
