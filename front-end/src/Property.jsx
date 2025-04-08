@@ -54,6 +54,7 @@ const Property = () => {
   }, [])
 
   const mainItem = allProperties.filter((item) => item._id === params.id);
+  const maps = mainItem.map((item) => item.location.maps)
 
 
   console.log(mainItem)
@@ -66,19 +67,25 @@ const Property = () => {
         return (
           <div key={item._id} className='flex flex-col w-[95%] mx-auto mt-[30px] gap-[30px] '>
             <div className='flex h-full gap-[20px]'>
-              <div className='w-[60%] flex flex-col gap-[20px] '>
-              <img src={picture} className='w-full h-[400px] rounded-[9px] object-cover'   />
-              <div className='flex gap-[20px] '>
-            <img src={picture} className='w-[200px] h-[150px] rounded-[9px]'   />
-            <img src={picture} className='w-[200px] h-[150px] rounded-[9px]'   />
-              
-            </div>
+            <div className='w-[60%] flex flex-col gap-[20px] '>
+                <img src={item.images[0]?item.images[0]:picture} className='w-full h-[400px] rounded-[9px] object-cover' />
+                <div className='flex gap-[20px] '>
+                  {item.images.map((img,i)=>{
+                    return (
+                      <img src={img} className='w-[200px] h-[150px] rounded-[9px]' />
+                    )
+                  })}
+                 
+                  
+
+                </div>
               </div>
 
               <div className=' w-[40%]'>
-                <img src={al} className='h-full w-full object-cover rounded-[9px]' />
+                <iframe src={maps} width="400" height="300" className='border-0' allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
 
               </div>
+
             </div>
 
             <div className='flex flex-col gap-[20px]'>
