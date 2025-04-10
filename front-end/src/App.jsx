@@ -8,6 +8,10 @@ import Signup from './Signup'
 import { createBrowserRouter,RouterProvider } from 'react-router-dom'
 import Dashboard from './Dashboard'
 import Property from './Property'
+import Bangalore from './components/Bangalore'
+import Mumbai from './components/Mumbai'
+import Hyderabad from './components/Hyderabad'
+import Delhi from './components/Delhi'
 
 function App() {
   
@@ -35,6 +39,22 @@ element:<Signup/>
   path : '/property/:id',
   element:<Property/>
   },
+  {
+    path : '/bangalore',
+    element:<Bangalore/>
+  },
+  {
+    path : '/mumbai',
+    element:<Mumbai/>
+  },
+  {
+    path : '/hyderabad',
+    element:<Hyderabad/>
+  },
+  {
+    path : '/delhi',
+    element:<Delhi/>
+  }
 
   
     ]
