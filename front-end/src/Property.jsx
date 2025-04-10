@@ -201,8 +201,8 @@ const Property = () => {
       <div className='w-full flex gap-[10px] justify-between  bg-black text-white px-[13%] py-[5%] mt-[50px]'>
               <div className='flex justify-between flex-col  '>
                 <h1 className='text-[39px] poppins-medium  '>REZI_LINK</h1>
-                <p className='  poppins-normal text-[18px]'>Lorem ipsum dolor sit amet <br/> consectetur. Feugiat ac a risus et <br /> ullamcorper non.</p>
-                <div className='flex gap-[10px] items-center '><FaFacebook className='w-[20px] text-[30px]' /> <FaInstagram className='w-[20px] text-[30px]'/> <FaLinkedin className='w-[20px] text-[30px]'/>
+                <p className='  poppins-normal text-[18px]'>Find your perfect space or trusted service provider <br></br> with REZI-LINK.Simplifying real estate, one click at a time.</p>
+                <div className='flex gap-[30px] items-center '><FaFacebook className=' text-[40px]' /> <FaInstagram className=' text-[40px]'/> <FaLinkedin className='text-[40px]'/>
       
       
       

@@ -1,54 +1,99 @@
-import Button from 'react-bootstrap/Button';
-import Container from 'react-bootstrap/Container';
-import Form from 'react-bootstrap/Form';
-import Nav from 'react-bootstrap/Nav';
-import Navbar from 'react-bootstrap/Navbar';
-import NavDropdown from 'react-bootstrap/NavDropdown';
-import 'bootstrap/dist/css/bootstrap.min.css';
+import { useState } from 'react';
+import { useNavigate } from 'react-router-dom'
 
 function NavScrollExample() {
+  const [isOpen, setIsOpen] = useState(false);
+
   return (
-    <Navbar expand="lg" className="bg-body-tertiary">
-      <Container fluid>
-        <Navbar.Brand href="#">Navbar scroll</Navbar.Brand>
-        <Navbar.Toggle aria-controls="navbarScroll" />
-        <Navbar.Collapse id="navbarScroll">
-          <Nav
-            className="me-auto my-2 my-lg-0"
-            style={{ maxHeight: '100px' }}
-            navbarScroll
+    <nav className="bg-white shadow-md">
+      <div className="max-w-screen-xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="flex justify-between items-center py-4">
+          {/* Brand */}
+          <a href="#" className="text-2xl poppins-bold text-[32px]">
+            REZI-LINK
+          </a>
+
+          {/* Toggle button for mobile */}
+          <button
+            onClick={() => setIsOpen(!isOpen)}
+            className="text-gray-500 md:hidden focus:outline-none"
           >
-            <Nav.Link href="#action1">Home</Nav.Link>
-            <Nav.Link href="#action2">BECOME SELLER</Nav.Link>
-            <NavDropdown title="select city" id="navbarScrollingDropdown">
-              <NavDropdown.Item href="#action3">BANGALORE</NavDropdown.Item>
-              <NavDropdown.Item href="#action4">
-                HYDERABAD
-              </NavDropdown.Item>
-              <NavDropdown.Item href="#action4">
-                MUMBAI
-              </NavDropdown.Item>
-              
-              <NavDropdown.Item href="#action5">
-               DELHI
-              </NavDropdown.Item>
-            </NavDropdown>
-            <Nav.Link href="#" disabled>
-              Link
-            </Nav.Link>
-          </Nav>
-          <Form className="d-flex">
-            <Form.Control
-              type="search"
-              placeholder="Search"
-              className="me-2"
-              aria-label="Search"
-            />
-            <Button variant="outline-success">Search</Button>
-          </Form>
-        </Navbar.Collapse>
-      </Container>
-    </Navbar>
+            <svg
+              className="w-6 h-6"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              {isOpen ? (
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth={2}
+                  d="M6 18L18 6M6 6l12 12"
+                />
+              ) : (
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth={2}
+                  d="M4 6h16M4 12h16M4 18h16"
+                />
+              )}
+            </svg>
+          </button>
+
+          {/* Nav Links */}
+          <div className={`flex-col md:flex-row md:flex items-center space-y-4 md:space-y-0 md:space-x-6 ${isOpen ? 'flex' : 'hidden'} md:flex`}>
+            <a href="#action1" className="text-[24px] poppins-semibold">
+              Home
+            </a>
+            <a href="#action2" className="text-[24px] poppins-semibold">
+              BECOME SELLER
+            </a>
+
+            {/* Dropdown */}
+            <div className="relative group">
+              <button className="flex items-center  px-3 py-2 text-[24px] poppins-semibold">
+                Select City
+                <svg
+                  className="w-4 h-4 ml-1 transition-transform duration-200 transform group-hover:rotate-180"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+                </svg>
+              </button>
+
+              <div className="absolute hidden group-hover:block bg-white border rounded shadow-md z-10 mt-1 w-40">
+                <a href="#action3"  className="block px-4 py-2 text-[18px] poppins-regular hover:bg-gray-100">BANGALORE</a>
+                <a href="#action4" className="block px-4 py-2 text-[18px] poppins-regular hover:bg-gray-100">HYDERABAD</a>
+                <a href="#action4" className="block px-4 py-2 text-[18px] poppins-regular hover:bg-gray-100">MUMBAI</a>
+                <a href="#action5" className="block px-4 py-2 text-[18px] poppins-regular hover:bg-gray-100">DELHI</a>
+              </div>
+            </div>
+
+
+            {/* Search Bar */}
+            <form className="flex items-center space-x-2">
+              <input
+                type="search"
+                placeholder="Search"
+                className="px-3  py-1 text-[18px] poppins-regular border rounded-md focus:outline-none focus:ring focus:border-blue-300"
+              />
+              <button
+                type="submit"
+                className="px-4 py-1 text-[18px] poppins-regular border border-green-600 text-green-600 rounded hover:bg-green-600 hover:text-white transition"
+              >
+                Search
+              </button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </nav>
   );
 }
 
