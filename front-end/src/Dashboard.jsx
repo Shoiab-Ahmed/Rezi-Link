@@ -14,13 +14,17 @@ import { useState } from 'react'
 
 
 
+
+
+
 const Dashboard = () => {
   
      
     
       
   return (
-    <div className=' w-[95%] mx-auto'>
+    <div className='bg-[#FAFAFA] pt-[20px]' >
+    <div className=' w-[95%] mx-auto '>
       <NavScrollExample />
       <Carousel/>
 
@@ -84,6 +88,7 @@ const Dashboard = () => {
      
         
     
+    </div>
     </div>
   )
 }
