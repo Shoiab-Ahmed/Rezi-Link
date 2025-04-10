@@ -226,7 +226,7 @@ const Home = () => {
         
 
       </div>
-      <div className='w-[90%] mx-auto flex gap-[10px] my-[40px] h-[260px] justify-between items-center'>
+      <div className='w-[90%] mx-auto  flex gap-[10px] my-[40px] h-[260px] justify-between items-center'>
         <div className='h-full flex justify-between flex-col '>
           <h1 className='text-[39px] poppins-medium  '>REZI_LINK</h1>
           <p className=' text-[#272727B2] poppins-normal text-[18px]'>Find your perfect space or trusted service provider <br></br> with REZI-LINK.

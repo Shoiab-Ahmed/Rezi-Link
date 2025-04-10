@@ -13,6 +13,7 @@ import { FaKitchenSet } from "react-icons/fa6";
 import { FaFacebook } from "react-icons/fa";
 import { FaInstagram } from "react-icons/fa";
 import { FaLinkedin } from "react-icons/fa";
+import Footer from './components/Footer'
 
 import { Link } from 'react-router-dom'
 import { FaRupeeSign } from "react-icons/fa";
@@ -96,11 +97,14 @@ const Property = () => {
           <div key={item._id} className='flex flex-col w-[95%] mx-auto mt-[30px] gap-[30px] '>
             <div className='flex h-full gap-[20px]'>
               <div className='w-[60%] flex flex-col gap-[20px] '>
-                <img src={item.images[0] ? item.images[0] : picture} className='w-full h-[400px] rounded-[9px] object-cover' />
+                <img src={picture} className='w-full h-[400px] rounded-[9px] object-cover' />
                 <div className='flex gap-[20px] '>
                   {item.images.map((img, i) => {
                     return (
-                      <img src={img} className='w-[200px] h-[150px] rounded-[9px]' />
+                      <button onClick={() => setPicture(img)} key={i} className='cursor-pointer'>
+                            <img src={img} className='w-[200px] h-[150px] rounded-[9px]' />
+                      </button>
+
                     )
                   })}
 
@@ -301,49 +305,8 @@ const Property = () => {
           </div>
         )
       })}
-      <div className='w-full flex gap-[10px] justify-between  bg-black text-white px-[13%] py-[5%] mt-[50px]'>
-        <div className='flex justify-between flex-col  '>
-          <h1 className='text-[39px] poppins-medium  '>REZI_LINK</h1>
-          <p className='  poppins-normal text-[18px]'>Find your perfect space or trusted service provider <br></br> with REZI-LINK.Simplifying real estate, one click at a time.</p>
-          <div className='flex gap-[30px] items-center '><FaFacebook className=' text-[40px]' /> <FaInstagram className=' text-[40px]' /> <FaLinkedin className='text-[40px]' />
+      <Footer />
 
-
-
-          </div>
-
-        </div>
-
-        <div className='grid grid-cols-3 gap-[90px] h-full'>
-          <div className=' flex flex-col gap-[33px] text-[18px] poppins-normal'>
-            <h2 className=' font-bold text-[18px] '>About</h2>
-            <p >About US</p>
-            <p >Features</p>
-            <p >Blog</p>
-            <p >Pricing</p>
-          </div>
-          <div className=' flex flex-col gap-[33px] text-[18px] poppins-normal'>
-            <h2 className='font-bold text-[18px]'>Company</h2>
-            <p >How We Work </p>
-            <p >Press Room</p>
-            <p >Jobs</p>
-            <p >Community</p>
-          </div>
-          <div className=' flex flex-col gap-[33px] text-[18px] poppins-normal'>
-            <h2 className=' font-bold text-[18px]'>Legal</h2>
-            <p >Terms of Use</p>
-            <p >Privacy Policy</p>
-            <p >Security Policy</p>
-            <p >Cookie Setings</p>
-          </div>
-
-
-        </div>
-
-
-
-
-
-      </div>
 
 
 
