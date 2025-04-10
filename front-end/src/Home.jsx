@@ -35,7 +35,7 @@ const Home = () => {
           <div className='flex flex-col gap-[40px] mt-[120px]'>
             <h1 className="text-[40px] w-[630px] h-[104px] leading-[130%] poppins-normal">Find a comfortable and  <br /> elegant place to stay </h1>
             <p className='w-[600px] h-[90px] text-[20px] text-[#272727B2] poppins-normal leading-[150%]'>Search for a comfortable place to live with your new family and your child. Increase the harmony of your family and wife to be at home</p>
-            <button onClick={()=>{navigate('/signup')}} className='w-[197px] h-[66px] text-[20px] rounded-[12px] poppins-Semi Bold bg-[#A0CAF5]'>Get Started</button>
+            <button onClick={()=>{navigate('/signup')}} className='w-[197px] h-[66px] text-[20px] rounded-[12px] poppins-SemiBold bg-[#A0CAF5] cursor-pointer'>Get Started</button>
           </div>
           <div className='mt-[100px] flex flex-col gap-3' >
             <h1 className='text-[24px] leading-[150%] poppins-normal '>Our Partners :</h1>
@@ -229,8 +229,9 @@ const Home = () => {
       <div className='w-[90%] mx-auto flex gap-[10px] my-[40px] h-[260px] justify-between items-center'>
         <div className='h-full flex justify-between flex-col '>
           <h1 className='text-[39px] poppins-medium  '>REZI_LINK</h1>
-          <p className=' text-[#272727B2] poppins-normal text-[18px]'>Lorem ipsum dolor sit amet <br/> consectetur. Feugiat ac a risus et <br /> ullamcorper non.</p>
-          <div className='flex gap-[10px] items-center '><FaFacebook className='w-[20px] text-[30px]' /> <FaInstagram className='w-[20px] text-[30px]'/> <FaLinkedin className='w-[20px] text-[30px]'/>
+          <p className=' text-[#272727B2] poppins-normal text-[18px]'>Find your perfect space or trusted service provider <br></br> with REZI-LINK.
+          Simplifying real estate, one click at a time</p>
+          <div className='flex gap-[30px] items-center '><FaFacebook className=' text-[40px]' /> <FaInstagram className='text-[40px]'/> <FaLinkedin className=' text-[40px]'/>
 
 
 

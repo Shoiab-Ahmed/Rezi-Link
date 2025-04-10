@@ -76,15 +76,15 @@ const Carousel = () => {
       {/* Previous Button */}
       <button
         onClick={handlePrev}
-        className="absolute top-1/2 left-5 z-10 transform -translate-y-1/2 backdrop-blur-xl bg-[#153F29]/70 hover:bg-black/50 text-white px-2 py-2 rounded-full"
+        className="absolute top-1/2 left-5 z-10 transform -translate-y-1/2 backdrop-blur-xl bg-black /70 hover:bg-black/20 text-white px-2 py-2 rounded-full"
       >
-        <svg xmlns="http://www.w3.org/2000/svg" width="32px" viewBox="0 0 24 24" fill="#FFFFFF"><path d="M10.8284 12.0007L15.7782 16.9504L14.364 18.3646L8 12.0007L14.364 5.63672L15.7782 7.05093L10.8284 12.0007Z"></path></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" width="32px" viewBox="0 0 24 24"  fill="#FFFFFF"><path d="M10.8284 12.0007L15.7782 16.9504L14.364 18.3646L8 12.0007L14.364 5.63672L15.7782 7.05093L10.8284 12.0007Z"></path></svg>
       </button>
 
       {/* Next Button */}
       <button
         onClick={handleNext}
-        className="absolute top-1/2 right-5 z-10 transform -translate-y-1/2 backdrop-blur-xl bg-[#153F29]/70 hover:bg-black/50 text-white px-2 py-2 rounded-full"
+        className="absolute top-1/2 right-5 z-10 transform -translate-y-1/2 backdrop-blur-xl bg-black/70 hover:bg-black/20 text-white px-2 py-2 rounded-full"
       >
         <svg xmlns="http://www.w3.org/2000/svg" width="32px" viewBox="0 0 24 24" fill="#FFFFFF"><path d="M13.1717 12.0007L8.22192 7.05093L9.63614 5.63672L16.0001 12.0007L9.63614 18.3646L8.22192 16.9504L13.1717 12.0007Z"></path></svg>
       </button>
