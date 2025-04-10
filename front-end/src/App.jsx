@@ -12,6 +12,7 @@ import Bangalore from './components/Bangalore'
 import Mumbai from './components/Mumbai'
 import Hyderabad from './components/Hyderabad'
 import Delhi from './components/Delhi'
+import Pricings from './Pricings'
 
 function App() {
   
@@ -54,6 +55,10 @@ element:<Signup/>
   {
     path : '/delhi',
     element:<Delhi/>
+  },
+  {
+    path : '/pricings',
+    element:<Pricings/>
   }
 
   
