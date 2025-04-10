@@ -6,6 +6,7 @@ import { FaFacebook } from "react-icons/fa";
 import { FaInstagram } from "react-icons/fa";
 import { FaLinkedin } from "react-icons/fa";
 import NavScrollExample from './NavScrollExample';
+import footer from './Footer';
 
 import { FaRupeeSign } from "react-icons/fa";
 
@@ -100,6 +101,7 @@ const Hyderabad = () => {
        
        
            </div>
+           <Footer />
          
         </>
     )
