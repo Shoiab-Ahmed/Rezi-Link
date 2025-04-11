@@ -317,7 +317,7 @@ const Property = () => {
 
 
 
-</div> : <div>YOU SHOULD BE LOGGED IN TO SEE THIS PAGE</div> }
+</div> : <div className='flex justify-center items-center h-screen'>YOU SHOULD BE LOGGED IN TO SEE THIS PAGE</div> }
    
     </>
   )
