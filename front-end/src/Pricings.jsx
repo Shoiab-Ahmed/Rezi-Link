@@ -1,6 +1,6 @@
 import React from 'react'
 import PricingCard from './components/PricingCard'
-import NavScrollExample from './components/NavScrollExample'
+import NavScrollExample from './components/Navbar2'
 
 const Pricings = () => {
 

@@ -7,7 +7,8 @@ from app.controllers.payment_controller import payment_controller
 
 def create_app():
     app = Flask(__name__)
-    CORS(app)  # Allow frontend to access APIs
+    CORS(app, resources={r"/*": {"origins": "*"}})  # For development
+
 
     # Register blueprints
     app.register_blueprint(user_controller)
