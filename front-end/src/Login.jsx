@@ -5,11 +5,13 @@ import banner2 from  './assets/banner2.png'
 import axios from 'axios'
 import { useNavigate } from 'react-router-dom';
 import { useState } from 'react';
+import { useAuth } from './AuthContext';
 
-const login = () => {
+const Login = () => {
   const [email, setEmail] = useState("")
   const [password, setPassword] = useState("")
   const navigate = useNavigate()
+  const {login} = useAuth()
 
   const handleLogin=async(e)=>{
     e.preventDefault()
@@ -18,6 +20,7 @@ const login = () => {
         email, password
       })
       localStorage.setItem("token",response.data.token)
+      login(response.data.token)
       navigate('/dashboard')
     }  
     catch(e) {
@@ -94,4 +97,4 @@ const login = () => {
   )
 }
 
-export default login
+export default Login

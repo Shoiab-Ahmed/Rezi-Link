@@ -4,12 +4,14 @@ import UserNav from './components/UserNav'
 import Carousel from './components/Carousel'
 import axios from 'axios'
 import Card from './components/Card'
-import NavScrollExample from './components/NavScrollExample'
+import NavScrollExample from './components/Navbar2'
 import { FaFacebook } from "react-icons/fa";
 import { FaInstagram } from "react-icons/fa";
 import { FaLinkedin } from "react-icons/fa";
 import { useState } from 'react'
 import Footer from './components/Footer'
+
+import { useAuth } from './AuthContext'
 
 
 
@@ -19,12 +21,14 @@ import Footer from './components/Footer'
 
 
 const Dashboard = () => {
+  const {isAuthenticated} = useAuth()
   
      
     
       
   return (
-    <div className='bg-[#FAFAFA] ' >
+    <>
+    {isAuthenticated ?<div className='bg-[#FAFAFA] ' >
     <div className=' w-full mx-auto '>
       <NavScrollExample />
       <div className='w-[95%] mx-auto'>
@@ -52,7 +56,10 @@ const Dashboard = () => {
         
     
     </div>
-    </div>
+    </div>: <div>YOU SHOULD BE LOGGED IN TO SEE THIS PAGE </div>
+    }
+    
+    </>
   )
 }
 

@@ -12,9 +12,11 @@ class UserRepository:
     
     def create_user(self, user_data):
         user = {
-            "username": user_data["username"],
-            "email": user_data["email"],
-            "password": user_data["password"],  # Hashed password
-            "role": user_data.get("role", "user")  # Default role is 'user'
-        }
-        return self.collection.insert_one(user)
+        "username": user_data["username"],
+        "email": user_data["email"],
+        "password": user_data["password"],  # Hashed password
+        "role": user_data.get("role", "user")  # Default role is 'user'
+    }
+        result = self.collection.insert_one(user)
+        return result.inserted_id  # Return the ObjectId
+

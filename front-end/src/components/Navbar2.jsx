@@ -1,10 +1,13 @@
 import { useState } from 'react';
-import { useNavigate } from 'react-router-dom'
 import { MdArrowDropDownCircle } from "react-icons/md";
+import { useAuth } from '../AuthContext';
+import { useNavigate } from 'react-router-dom';
 
 
-function NavScrollExample() {
+function Navbar2() {
   const [isOpen, setIsOpen] = useState(false);
+  const {logout} = useAuth();
+  const naviagte = useNavigate()
   
 
   return (
@@ -52,7 +55,13 @@ function NavScrollExample() {
           placeholder="Search"
           className="px-3 py-2.5 text-[16px] poppins-regular border rounded-md focus:outline-none focus:ring focus:border-blue-300"
         />
-        <button
+        <button onClick={()=>{
+          
+          
+          logout()
+          naviagte('/login')
+        
+        }}
           
           className="px-4 py-2.5 text-[16px] poppins-regular rounded-lg bg-[#9393ff] text-white hover:text-white transition"
         >
@@ -98,4 +107,4 @@ function NavScrollExample() {
   );
 }
 
-export default NavScrollExample;
+export default Navbar2;

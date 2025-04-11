@@ -5,12 +5,14 @@ import banner from './assets/banner.png';
 import axios from 'axios'
 import { useNavigate } from 'react-router-dom';
 import { useState } from 'react';
+import { useAuth } from './AuthContext';
 
 const Signup = () => {
   const [username, setUsername] = useState("")
   const [email, setEmail] = useState("")
   const [password, setPassword] = useState("")
   const navigate = useNavigate()
+  const {login} = useAuth()
 
   const handleSignup=async(e)=>{
     e.preventDefault()
@@ -18,6 +20,8 @@ const Signup = () => {
       const response = await axios.post("http://127.0.0.1:5000/users/register",{
         username, email, password
       })
+      localStorage.setItem("token",response.data.token)
+      login(response.data.token)
       
       navigate('/dashboard')
     }  

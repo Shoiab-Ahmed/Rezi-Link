@@ -29,14 +29,31 @@ def register():
 
     hashed_password = generate_password_hash(data["password"])
     
-    user_repo.create_user({
+    new_user = {
         "username": data["username"],
         "email": data["email"],
         "password": hashed_password,
         "role": role
-    })
+    }
 
-    return jsonify({"message": "User registered successfully"}), 201
+    user_id = user_repo.create_user(new_user)  # Make sure this returns the user ID
+
+    # Create JWT token
+    token = jwt.encode(
+        {
+            "user_id": str(user_id),
+            "role": role,
+            "exp": datetime.datetime.utcnow() + datetime.timedelta(hours=24)
+        },
+        SECRET_KEY,
+        algorithm="HS256"
+    )
+
+    return jsonify({
+        "message": "User registered successfully",
+        "token": token,
+        "role": role
+    }), 201
 
 # Login User
 @user_controller.route("/users/login", methods=["POST"])
