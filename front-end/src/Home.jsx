@@ -107,20 +107,17 @@ const Home = () => {
         <div >
           <img src={rectangle} alt="rectangle" />
         </div>
-        <div className='px-[63px] py-[40px] w-[611px] h-[302px] bg-[#272727] rounded-[24px]'>
-          <div className='grid grid-cols-2 gap-[30px] text-white text-[36px]'>
-            <button className='flex justify-between text-[36px] poppins-normal'>Elegant <div className='flex justify-center items-center w-[54px] h-[54px]   hover:rounded-full hover:bg-[#A0CAF5]'><MdArrowOutward /></div>
+        <div className='px-[63px] py-[60px] w-[611px] h-[302px] bg-[#272727] rounded-[24px]'>
+          <div className='grid grid-cols-2 gap-[80px] text-white text-[36px]'>
+            <button className='flex justify-between text-[36px] poppins-regular'>Bangalore <div className='flex justify-center items-center w-[54px] h-[54px]   hover:rounded-full hover:bg-[#A0CAF5]'><MdArrowOutward /></div>
             </button>
-            <button className='flex justify-between poppins-normal'>Casstle<div className='flex justify-center items-center w-[54px] h-[54px]   hover:rounded-full hover:bg-[#A0CAF5]'><MdArrowOutward /></div>
+            <button className='flex justify-between poppins-regular'>Hyderabad<div className='flex justify-center items-center w-[54px] h-[54px]   hover:rounded-full hover:bg-[#A0CAF5]'><MdArrowOutward /></div>
             </button>
-            <button className='flex justify-between poppins-normal'>Custle <div className='flex justify-center items-center w-[54px] h-[54px]   hover:rounded-full hover:bg-[#A0CAF5]'><MdArrowOutward /></div>
+            <button className='flex justify-between poppins-regular'>Mumbai <div className='flex justify-center items-center w-[54px] h-[54px]   hover:rounded-full hover:bg-[#A0CAF5]'><MdArrowOutward /></div>
             </button>
-            <button className='flex justify-between poppins-normal'>Modern<div className='flex justify-center items-center w-[54px] h-[54px]   hover:rounded-full hover:bg-[#A0CAF5]'><MdArrowOutward /></div>
+            <button className='flex justify-between poppins-regular'>Delhi<div className='flex justify-center items-center w-[54px] h-[54px]   hover:rounded-full hover:bg-[#A0CAF5]'><MdArrowOutward /></div>
             </button>
-            <button className='flex justify-between poppins-normal'>American<div className='flex justify-center items-center w-[54px] h-[54px]   hover:rounded-full hover:bg-[#A0CAF5]'><MdArrowOutward /></div>
-            </button>
-            <button className='flex justify-between poppins-normal'>Culture<div className='flex justify-center items-center w-[54px] h-[54px]   hover:rounded-full hover:bg-[#A0CAF5]'><MdArrowOutward /></div>
-            </button>
+
 
           </div>
 

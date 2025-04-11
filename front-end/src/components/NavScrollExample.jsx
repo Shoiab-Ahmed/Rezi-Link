@@ -86,10 +86,10 @@ function NavScrollExample() {
       <div className="md:hidden flex flex-col space-y-4 mt-4">
         <a href="#action1" className="text-[18px] poppins-semibold">Home</a>
         <a href="#action2" className="text-[18px] poppins-semibold">Become Seller</a>
-        <a href="#action3" className="text-[18px] poppins-semibold">BANGALORE</a>
-        <a href="#action4" className="text-[18px] poppins-semibold">HYDERABAD</a>
-        <a href="#action5" className="text-[18px] poppins-semibold">MUMBAI</a>
-        <a href="#action6" className="text-[18px] poppins-semibold">DELHI</a>
+        <a href="/bangalore" className="text-[18px] poppins-semibold">BANGALORE</a>
+        <a href="/hyderabad" className="text-[18px] poppins-semibold">HYDERABAD</a>
+        <a href="/mumbai" className="text-[18px] poppins-semibold">MUMBAI</a>
+        <a href="/delhi" className="text-[18px] poppins-semibold">DELHI</a>
       </div>
     )}
   </div>

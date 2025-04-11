@@ -1,6 +1,6 @@
 import React from 'react';
 import { FcGoogle } from "react-icons/fc";
-import { FaFacebook } from "react-icons/fa6";
+import { FaGithub } from "react-icons/fa";
 import banner from './assets/banner.png';
 import axios from 'axios'
 import { useNavigate } from 'react-router-dom';
@@ -40,11 +40,11 @@ const Signup = () => {
           </div>
 
           <div className='flex flex-col sm:flex-row gap-4 mb-6'>
-            <button className='flex items-center justify-center w-full sm:w-1/2 border border-gray-300 rounded-lg py-3 gap-2 poppins-medium'>
-              <FcGoogle /> Google
+            <button className='flex items-center justify-center w-full sm:w-1/2 border border-gray-300 rounded-lg py-3 gap-2 poppins-medium cursor-pointer text-[20px]'>
+              <FcGoogle className='text-[30px]' /> Google
             </button>
-            <button className='flex items-center justify-center w-full sm:w-1/2 border border-gray-300 rounded-lg py-3 gap-2 poppins-medium'>
-              <FaFacebook className='text-blue-600' /> Facebook
+            <button className='flex items-center justify-center w-full sm:w-1/2 border border-gray-300 rounded-lg py-3 gap-2 poppins-medium cursor-pointer text-[20px]'>
+              <FaGithub className='text-[30px] text-black' /> GitHub
             </button>
           </div>
 
@@ -77,7 +77,7 @@ const Signup = () => {
           </form>
 
           <div className='mt-6 text-center text-gray-600'>
-            <p className='poppins-normal'>Already have an account? <span className='text-black poppins-normal cursor-pointer'>Login</span></p>
+            <p className='poppins-normal'>Already have an account? <a href='/login'><span className='text-black poppins-normal cursor-pointer underline'>Login</span></a></p>
           </div>
         </div>
       </div>
