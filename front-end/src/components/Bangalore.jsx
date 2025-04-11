@@ -8,10 +8,12 @@ import { FaLinkedin } from "react-icons/fa";
 import NavScrollExample from './Navbar2';
 import { FaRupeeSign } from "react-icons/fa";
 import Footer from './Footer';
-
+import { useAuth } from '../AuthContext'
 
 
 const Bangalore = () => {
+  const {isAuthenticated} = useAuth()
+
     const navigate = useNavigate()
     const [picture, setPicture] = useState("https://imagecdn.99acres.com/media1/24795/4/495904524M-1717478704466.jpg")
     const [data, setData] = useState([])
@@ -57,9 +59,8 @@ const Bangalore = () => {
 
     return (
         <>
-
-
-        <NavScrollExample/>
+        {isAuthenticated ? <div>
+          <NavScrollExample/>
         <h1 className='text-[40px] poppins-bold w-full text-center my-[30px]'>Bangalore Properties</h1>
 
       
@@ -102,6 +103,13 @@ const Bangalore = () => {
        
            </div>
            <Footer />
+
+        </div> : <div className='flex justify-center items-center h-screen'>Should be logged in to see this page</div>
+        }
+        
+
+
+
          
         </>
     )
