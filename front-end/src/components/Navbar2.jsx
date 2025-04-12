@@ -98,11 +98,9 @@ function Navbar2() {
     if (userType === "Seller") {
       setBtn("User");
       
-      navigate('/seller')
       setIsSeller(true); 
     } else {
       setBtn("Seller");
-      navigate('/dashboard')
       setIsSeller(false); 
     }
   }, []);
