@@ -13,6 +13,9 @@ import Mumbai from './components/Mumbai'
 import Hyderabad from './components/Hyderabad'
 import Delhi from './components/Delhi'
 import Pricings from './Pricings'
+import Seller from './Seller'
+import ManageProperties from './ManageProperties'
+import MyProperties from './MyProperties'
 
 function App() {
   
@@ -59,7 +62,24 @@ element:<Signup/>
   {
     path : '/pricings',
     element:<Pricings/>
+  },
+  {
+    path : '/seller',
+    element:<Seller/>
+  },
+  {
+    path:'/overview',
+    element:<Seller/>
+  },
+  {
+    path:'/manage-properties',
+    element:<ManageProperties/>
+  },
+  {
+    path:'/my-properties',
+    element:<MyProperties/>
   }
+
 
   
     ]
