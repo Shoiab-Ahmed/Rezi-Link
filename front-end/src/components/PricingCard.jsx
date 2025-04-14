@@ -48,7 +48,17 @@ const PricingCard = ({ plan, price, features, mybgcolor, mycolor }) => {
 
           if (verifyRes.data.status === "success") {
             alert("Payment Successful!");
-            
+          
+            // Step 4: Update unlocks in backend
+            await axios.post(
+              "http://127.0.0.1:5000/users/update-limit",
+              { plan },
+              {
+                headers: {
+                  Authorization: `Bearer ${token}`,
+                },
+              }
+            );
           } else {
             alert("Payment Verification Failed");
           }
