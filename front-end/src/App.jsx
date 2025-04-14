@@ -14,8 +14,8 @@ import Hyderabad from './components/Hyderabad'
 import Delhi from './components/Delhi'
 import Pricings from './Pricings'
 import Seller from './Seller'
-import ManageProperties from './ManageProperties'
 import MyProperties from './MyProperties'
+import AllProperties from './AllProperties'
 
 function App() {
   
@@ -72,8 +72,8 @@ element:<Signup/>
     element:<Seller/>
   },
   {
-    path:'/manage-properties',
-    element:<ManageProperties/>
+    path:'/all-properties',
+    element:<AllProperties/>
   },
   {
     path:'/my-properties',
