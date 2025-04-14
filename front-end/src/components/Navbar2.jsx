@@ -249,10 +249,10 @@ function Navbar2() {
                 Submit Seller Details
               </button>
             </form>
-            <p>Already a Seller? Switch <button onClick={()=>{
+            <p className='poppins-regular text-[14px]'>Already a Seller? Switch <button onClick={()=>{
               setPopup(false)
               setLoginPopup(true)
-            }}>Here</button></p>
+            }} className='text-[#000038] cursor-pointer hover:underline'>Here</button></p>
           </div>
         </div>
       )}
