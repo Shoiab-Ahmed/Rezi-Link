@@ -7,8 +7,10 @@ import { RiDeleteBinLine } from "react-icons/ri";
 import { MdOutlineModeEdit } from "react-icons/md";
 import { useLocation } from 'react-router-dom';
 
-const MyProperties = () => {
+
+const AllProperties = () => {
   const location = useLocation();
+
   const [allProperties, setAllProperties] = useState([])
   useEffect(() => {
 
@@ -51,7 +53,7 @@ const MyProperties = () => {
                     <a
                       href="/all-properties"
                       className={`text-[20px] poppins-semibold pb-2 ${location.pathname === '/all-properties'
-                        ? 'text-[#4F46E5] border-b-2 border-[#4F46E5]'
+                        ? 'text-[#4F46E5]  border-[#4F46E5]'
                         : 'text-gray-400'
                         }`}
                     >
@@ -70,6 +72,7 @@ const MyProperties = () => {
                     </a>
                   </li>
                 </ul>
+
               </div>
 
               <div className='  w-full p-[24px] flex justify-between'>
@@ -141,4 +144,4 @@ const MyProperties = () => {
   )
 }
 
-export default MyProperties
+export default AllProperties
