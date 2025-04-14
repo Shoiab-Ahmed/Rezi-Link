@@ -34,62 +34,79 @@ import { useAuth } from './AuthContext'
 
 
 const Property = () => {
-  const [picture, setPicture] = useState("https://imagecdn.99acres.com/media1/24795/4/495904524M-1717478704466.jpg")
-
+  const [picture, setPicture] = useState("https://imagecdn.99acres.com/media1/24795/4/495904524M-1717478704466.jpg");
   const [hasPurchased, setHasPurchased] = useState(false);
+  const [remainingUnlocks, setRemainingUnlocks] = useState(0);
+  const [showContact, setShowContact] = useState(false);
+  const [allProperties, setAllProperties] = useState([]);
+  const params = useParams();
+  const { isAuthenticated } = useAuth();
 
-
-  const [allProperties, setAllProperties] = useState([])
-  const [property, setProperty] = useState([])
-
-  const params = useParams()
-
-  const {isAuthenticated} = useAuth()
-
-  useEffect(() => {
-
-
-
-
-    const fetchdata = async () => {
-      try {
-        const response = await axios.get('http://127.0.0.1:5000/properties')
-
-
-        setAllProperties(response.data)
+  const handleUnlockContact = async () => {
+    const token = localStorage.getItem("token");
+    try {
+      const res = await axios.post(
+        "http://127.0.0.1:5000/users/unlock-contact",
+        { property_id: params.id },
+        { headers: { Authorization: `Bearer ${token}` } }
+      );
+      if (res.data.status === "success") {
+      console.log(res.data.status)
+        setShowContact(true);
+        setHasPurchased(true);
+        setRemainingUnlocks(res.data.remaining_limit);
+      } else {
+        alert(res.data.message);
       }
-      catch (error) {
-        console.log("Error while fetching the data", error)
-      }
-
-
+    } catch (error) {
+      console.error("Unlock failed", error);
+      alert("Something went wrong while unlocking contact.");
     }
-    fetchdata()
-
-
-
-  }, [])
-
-  const mainItem = allProperties.filter((item) => item._id === params.id);
-  const maps = mainItem.map((item) => item.location.maps)
-
-  const suggestions = allProperties.filter((item) =>
-    item.location.city === mainItem[0]?.location.city && item._id !== mainItem[0]?._id
-  );
-  const formatPrice = (price) => {
-    if (price >= 10000000) {
-      return (price / 10000000).toFixed(1) + ' Cr';
-    } else if (price >= 100000) {
-      return (price / 100000).toFixed(1) + ' L';
-    } else if (price >= 1000) {
-      return (price / 1000).toFixed(1) + ' K';
-    }
-    return price;
   };
 
+  useEffect(() => {
+    const fetchdata = async () => {
+      try {
+        const response = await axios.get("http://127.0.0.1:5000/properties");
+        setAllProperties(response.data);
+      } catch (error) {
+        console.log("Error while fetching the data", error);
+      }
+    };
+    fetchdata();
 
+    const fetchUnlockStatus = async () => {
+      const token = localStorage.getItem("token");
+      if (!token) return;
+      try {
+        const res = await axios.get(`http://127.0.0.1:5000/users/unlock-status/${params.id}`, {
+          headers: { Authorization: `Bearer ${token}` },
+        });
+        if (res.data.status === "success") {
+          setHasPurchased(res.data.hasPurchased);
+          setRemainingUnlocks(res.data.remainingUnlocks);
+          setShowContact(res.data.showContact);
+        }
+      } catch (err) {
+        console.error("Error fetching unlock status", err);
+      }
+    };
 
-  console.log(mainItem)
+    fetchUnlockStatus();
+  }, [params.id]);
+
+  const mainItem = allProperties.filter((item) => item._id === params.id);
+  const maps = mainItem.map((item) => item.location.maps);
+  const suggestions = allProperties.filter(
+    (item) => item.location.city === mainItem[0]?.location.city && item._id !== mainItem[0]?._id
+  );
+
+  const formatPrice = (price) => {
+    if (price >= 10000000) return (price / 10000000).toFixed(1) + " Cr";
+    else if (price >= 100000) return (price / 100000).toFixed(1) + " L";
+    else if (price >= 1000) return (price / 1000).toFixed(1) + " K";
+    return price;
+  };
   return (
 <>
 
@@ -215,44 +232,47 @@ const Property = () => {
 
 
 {/* contact pricing info */}
-<div className='w-[40%] h-full relative'>
-{/* Overlay shown only when locked */}
-{!hasPurchased && (
-<div className='absolute inset-0 flex items-center justify-center z-10'>
-<div className='bg-white text-black bg-opacity-70 p-6 rounded-lg text-center relative'>
-  <FaCrown className='text-yellow-400 text-3xl -rotate-45 absolute -top-5 left-[-3px] -translate-x-1/2' />
-
-  <p className='text-lg font-medium mb-2 flex items-center gap-2 justify-center'>
-    <FaLock /> Contact Info Locked
-  </p>
-  <Link to="/pricings" className='text-[#714FAE] underline'>Purchase a plan</Link> to unlock
-</div>
-</div>
-)}
-
-{/* Content with blur effect applied conditionally */}
-<div className={`relative p-6 border h-full rounded-xl shadow-md ${!hasPurchased ? 'blur-sm pointer-events-none select-none' : ''}`}>
-<h2 className='text-2xl font-semibold mb-4'>Owner / Agent Contact Details</h2>
-
-<div className='space-y-4'>
-{item.contacts.slice(0, 3).map((contact, index) => (
-  <div key={index} className='bg-black text-white p-4 rounded-lg shadow-sm flex items-center gap-4'>
-    <img 
-      src={contact.profilePic || `${user}`} 
-      alt={contact.name} 
-      className='w-14 h-14 rounded-full object-cover ' 
-    />
-    <div>
-      <p><strong>Name:</strong> {contact.name}</p>
-      <p><strong>Phone:</strong> {contact.phone}</p>
-      <p><strong>Email:</strong> {contact.email}</p>
-    </div>
-  </div>
-))}
-</div>
-</div>
-</div>
-
+<div className="w-[35%]">
+                  {!showContact ? (
+                    !hasPurchased ? (
+                      <div className="bg-yellow-100 border border-yellow-300 p-4 rounded-md text-center">
+                        <p className="font-medium text-yellow-800 flex items-center justify-center gap-2">
+                          <FaLock /> Contact info is locked
+                        </p>
+                        <Link to="/pricings" className="text-purple-700 underline">
+                          Purchase a plan
+                        </Link>
+                      </div>
+                    ) : remainingUnlocks <= 0 ? (
+                      <div className="bg-yellow-100 border border-yellow-300 p-4 rounded-md text-center">
+                        <p className="font-medium text-yellow-800 flex items-center justify-center gap-2">
+                          <FaLock /> Unlock limit reached
+                        </p>
+                        <Link to="/pricings" className="text-purple-700 underline">
+                          Upgrade or repurchase
+                        </Link>
+                      </div>
+                    ) : (
+                      <button
+                        onClick={handleUnlockContact}
+                        className="bg-purple-600 hover:bg-purple-700 text-white px-6 py-3 rounded-md"
+                      >
+                        Unlock Contact Info
+                      </button>
+                    )
+                  ) : (
+                    <div className="border p-4 rounded-md bg-white shadow">
+                      <h3 className="text-lg font-semibold mb-2">Contact Info</h3>
+                      {item.contacts?.map((contact, idx) => (
+                        <div key={idx} className="mb-2">
+                          <p>Name: {contact.name}</p>
+                          <p>Phone: {contact.phone}</p>
+                          <p>Email: {contact.email}</p>
+                        </div>
+                      ))}
+                    </div>
+                  )}
+                </div>
 
 
 
