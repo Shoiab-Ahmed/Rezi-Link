@@ -16,6 +16,7 @@ import Pricings from './Pricings'
 import Seller from './Seller'
 import MyProperties from './MyProperties'
 import AllProperties from './AllProperties'
+import AddProperties from './components/AddProperties'
 
 function App() {
   
@@ -78,7 +79,12 @@ element:<Signup/>
   {
     path:'/my-properties',
     element:<MyProperties/>
+  },
+  {
+    path:'/add-properties',
+    element:<AddProperties/>
   }
+
 
 
   
