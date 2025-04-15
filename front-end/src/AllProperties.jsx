@@ -6,10 +6,13 @@ import { FaPlus } from "react-icons/fa";
 import { RiDeleteBinLine } from "react-icons/ri";
 import { MdOutlineModeEdit } from "react-icons/md";
 import { useLocation } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 
 
 const AllProperties = () => {
   const location = useLocation();
+  const navigate = useNavigate()
 
   const [allProperties, setAllProperties] = useState([])
   useEffect(() => {
@@ -47,38 +50,41 @@ const AllProperties = () => {
         <div className='flex w-full flex-col'>
           <div className='p-[30px]'>
             <div className=''>
-              <div className=''>
-                <ul className="flex gap-[20px] border-b border-gray-200">
-                  <li>
-                    <a
-                      href="/all-properties"
-                      className={`text-[20px] poppins-semibold pb-2 ${location.pathname === '/all-properties'
-                        ? 'text-[#4F46E5]  border-[#4F46E5]'
-                        : 'text-gray-400'
-                        }`}
-                    >
-                      All Properties
-                    </a>
-                  </li>
-                  <li>
-                    <a
-                      href="/my-properties"
-                      className={`text-[20px] poppins-semibold pb-2 ${location.pathname === '/my-properties'
-                        ? 'text-[#4F46E5]  border-[#4F46E5]'
-                        : 'text-gray-400'
-                        }`}
-                    >
-                      My Properties
-                    </a>
-                  </li>
-                </ul>
-
-              </div>
+            <div>
+    <ul className="flex gap-[20px] border-b border-gray-200">
+      <li className="px-5 py-4 rounded-lg">
+        <NavLink
+          to="/all-properties"
+          className={`text-[20px] poppins-semibold pb-2 transition-all duration-300 ease-in-out border-b-4 ${
+            location.pathname === '/all-properties'
+              ? 'text-[#4F46E5] border-[#4F46E5]'
+              : 'text-gray-400 border-transparent'
+          }`}
+        >
+          All Properties
+        </NavLink>
+      </li>
+      <li className="px-5 py-4 rounded-lg">
+        <NavLink
+          to="/my-properties"
+          className={`text-[20px] poppins-semibold pb-2 transition-all duration-300 ease-in-out border-b-4 ${
+            location.pathname === '/my-properties'
+              ? 'text-[#4F46E5] border-[#4F46E5]'
+              : 'text-gray-400 border-transparent'
+          }`}
+        >
+          My Properties
+        </NavLink>
+      </li>
+    </ul>
+  </div>
 
               <div className='  w-full p-[24px] flex justify-between'>
                 <h1 className='nunito-sans font-semibold text-[24px]'>Total Policies</h1>
-                <button className="w-[118px] h-[28px] flex items-center justify-center gap-[15px] rounded-[4px] bg-[#714FAE] text-white text-[12px] poppins-regular cursor-pointer">
-                  New Policy <FaPlus className="w-[12px] h-[12px]" />
+                <button onClick={()=>{
+                  navigate('/add-properties')
+                }} className="w-[118px] h-[28px] flex items-center justify-center gap-[15px] rounded-[4px] bg-[#714FAE] text-white text-[12px] poppins-regular cursor-pointer">
+                  Add Property <FaPlus className="w-[12px] h-[12px]" />
                 </button>
 
               </div>
