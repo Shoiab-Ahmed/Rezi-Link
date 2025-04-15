@@ -21,3 +21,11 @@ class PropertyRepository:
     @staticmethod
     def delete_property(property_id):
         return properties_collection.delete_one({"_id": ObjectId(property_id)})
+    
+    @staticmethod
+    def get_property_by_custom_id(custom_id):
+        return properties_collection.find_one({"id": custom_id})
+    @staticmethod
+    def get_properties_by_owner_id(owner_id):
+        return list(properties_collection.find({"owner_id": owner_id}))
+

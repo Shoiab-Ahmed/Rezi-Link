@@ -60,7 +60,7 @@ const Card = ({ city }) => {
       {data.slice(0, 3).map((item, index) => {
         return (
           <div key={index} className='bg-[#F4F4FF] hover:bg-[#e8e8ff] text-black transform hover:-translate-y-4 transition-all w-[30%] rounded-[20px] flex flex-col justify-between gap-[20px] p-[20px]'>
-            <img src={item.images[0] ? item.images[0] : picture} alt="" className='h-[400px]  max-h-[200px] w-full object-cover rounded-t-[10px]' />
+            <img src={item.images[0] ? item.images[0] : picture} alt="" className='h-[400px]  max-h-[200px] w-full object-cover rounded-xl' />
             <div>
               <p className='poppins-bold text-[25px] overflow-ellipsis overflow-hidden whitespace-nowrap'>{item.title} </p>
               <p className='poppins-medium text-gray-700 text-[14px] overflow-ellipsis whitespace-nowrap overflow-hidden'>{item.description}</p>
@@ -81,7 +81,7 @@ const Card = ({ city }) => {
               <p className='poppins-semibold text-[20px] flex items-center'><FaRupeeSign />{formatPrice(item.price)}</p>
               <button onClick={() => {
                 navigate(`/property/${item._id}`)
-              }} className='text-[16px] w-[150px] h-[40px] mt-[5px] bg-[#9393ff] text-white rounded-[10px] poppins-normal cursor-pointer'>Get More Info</button>
+              }} className='text-[16px] w-[150px] h-[40px] mt-[5px] bg-[#9393ff] hover:bg-[#8686ff] text-white rounded-[10px] poppins-normal cursor-pointer'>Get More Info</button>
             </div>
 
 
