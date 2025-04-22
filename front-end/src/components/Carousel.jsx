@@ -9,9 +9,9 @@ const Carousel = () => {
 
 
   const slides = [
-    { id: 1, image: corosal1, alt: "Slide 1",category: "Bangalore – Silicon Valley of India" ,subtitle : "Cool breeze, cutting-edge tech, and a touch of green in every corner."},
-    { id: 2, image: corosal2, alt: "Slide 2" ,category: "Mumbai – City of Dreams",subtitle:"From iconic skylines to endless possibilities, experience life in motion" },
-    { id: 3, image: corosal3, alt: "Slide 3",category: "Delhi – Where History Meets Hustle",subtitle:"Ancient charm and modern pulse — discover the capital's vibrant vibe."  },
+    { id: 1, image: corosal1, alt: "Slide 1", category: "Bangalore ", subtitle: "Silicon Valley of India" },
+    { id: 2, image: corosal2, alt: "Slide 2", category: "Mumbai ", subtitle: " City of Dreams" },
+    { id: 3, image: corosal3, alt: "Slide 3", category: "Delhi  ", subtitle: "Where History Meets Hustle" },
   ];
 
   useEffect(() => {
@@ -35,9 +35,9 @@ const Carousel = () => {
   };
 
   return (
-    <div className="relative w-full mt-8 pl-2.5 max-sm:max-h-[200px] pr-2.5 max-lg:w-full mx-auto">
+    <div className="relative w-full mt-8 pl-2.5 max-sm:max-h-[200px] pr-2.5 max-lg:w-full mx-auto ">
       {/* Carousel Container */}
-      <div className="relative overflow-hidden rounded-lg">
+      <div className="relative overflow-hidden rounded-lg ">
         {/* Slides */}
         <div
           className="flex max-sm:min-h-[200px] transition-transform duration-700 ease-in-out"
@@ -46,7 +46,7 @@ const Carousel = () => {
           {slides.map((slide) => (
             <div
               key={slide.id}
-              className="flex-shrink-0 w-full relative"
+              className="flex-shrink-0 w-full relative "
               style={{ flexBasis: "100%" }}
             >
               <img
@@ -55,12 +55,15 @@ const Carousel = () => {
                 className="w-full h-full lg:max-h-[530px]  object-cover  "
               />
               {/* Overlay Box */}
-              <div className="max-lg:hidden lg:max-xl:p-[16px] lg:max-xl:bottom-[30px] lg:max-xl:left-[30px] absolute p-[20px] text-[24px] tracking-[1px] flex flex-row justify-around items-center bottom-[50px] left-[50px] w-[455px] h-[120px] backdrop-blur-2xl bg-white/20 rounded-[12px] xl:w-[600px] xl:h-[140px]">
+              <div className="max-lg:hidden lg:max-xl:p-[16px]  lg:max-xl:bottom-[30px] lg:max-xl:left-[30px] absolute p-[20px]  tracking-[1px] flex flex-row justify-around items-center bottom-[0px] left-[0px]  w-full h-full  rounded-[12px] xl:w-full xl:h-full bg-gradient-to-t from-black/90 via-black/60 to-transparent">
 
-                <div className=" lg:max-xl:text-[24px] lg:max-xl:[30px] font-custom leading-[29px] text-white lg:text-[28px] lg:leading-[35px]">
-                 <div><span className=" text-[#8f8fff] uppercase poppins-bold  ">{slide.category}</span> </div>
-                 <div>{slide.subtitle}</div>
+                <div className="flex flex-col justify-center items-center leading-[5px] text-[58px]">
+                  <span style={{
+                    textShadow: '0 1px 90px #8f8fff',
+                  }} className=" uppercase poppins-bold text-stroke text-9xl  ">{slide.category}</span>
+                  <span className=" allura-regular text-[#8f8fff]   ">{slide.subtitle}</span>
                 </div>
+
 
 
               </div>
@@ -75,7 +78,7 @@ const Carousel = () => {
         onClick={handlePrev}
         className="absolute top-1/2 left-5 z-10 transform -translate-y-1/2 backdrop-blur-xl bg-black /70 hover:bg-black/20 text-white px-2 py-2 rounded-full"
       >
-        <svg xmlns="http://www.w3.org/2000/svg" width="32px" viewBox="0 0 24 24"  fill="#FFFFFF"><path d="M10.8284 12.0007L15.7782 16.9504L14.364 18.3646L8 12.0007L14.364 5.63672L15.7782 7.05093L10.8284 12.0007Z"></path></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" width="32px" viewBox="0 0 24 24" fill="#FFFFFF"><path d="M10.8284 12.0007L15.7782 16.9504L14.364 18.3646L8 12.0007L14.364 5.63672L15.7782 7.05093L10.8284 12.0007Z"></path></svg>
       </button>
 
       {/* Next Button */}

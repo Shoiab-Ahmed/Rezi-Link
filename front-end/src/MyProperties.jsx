@@ -17,19 +17,19 @@ const MyProperties = () => {
 
 
 
-  const  handleDeleteProperty = async (property_id)=>{
-     try {
-      const response = await axios.delete(`http://127.0.0.1:5000/properties/${property_id}`,{
-        headers:{
-           Authorization : `Bearer ${localStorage.getItem('token')}`
+  const handleDeleteProperty = async (property_id) => {
+    try {
+      const response = await axios.delete(`http://127.0.0.1:5000/properties/${property_id}`, {
+        headers: {
+          Authorization: `Bearer ${localStorage.getItem('token')}`
         }
       })
 
-      
-     }
-     catch(e){
+
+    }
+    catch (e) {
       console.log(e)
-     }
+    }
   }
 
 
@@ -41,10 +41,10 @@ const MyProperties = () => {
 
     const fetchdata = async () => {
       try {
-        const response = await axios.get('http://127.0.0.1:5000/my-properties',{
+        const response = await axios.get('http://127.0.0.1:5000/my-properties', {
           headers: {
-            "Content-Type" : "application/json",
-            Authorization : `Bearer ${localStorage.getItem('token')}`
+            "Content-Type": "application/json",
+            Authorization: `Bearer ${localStorage.getItem('token')}`
           }
         })
 
@@ -61,8 +61,8 @@ const MyProperties = () => {
 
 
 
-  }, [])
- 
+  }, [allProperties])
+
 
 
   return (
@@ -74,46 +74,45 @@ const MyProperties = () => {
         <div className='flex w-full flex-col'>
           <div className='p-[30px]'>
             <div className=''>
-            <div>
-  <div>
-  <ul className="flex gap-[20px] border-b border-gray-200">
-      <li className="px-5 py-4 rounded-lg">
-        <NavLink
-          to="/all-properties"
-          className={`text-[20px] poppins-semibold pb-2 transition-all duration-300 ease-in-out border-b-4 ${
-            location.pathname === '/all-properties'
-              ? 'text-[#4F46E5] border-[#4F46E5]'
-              : 'text-gray-400 border-transparent'
-          }`}
-        >
-          All Properties
-        </NavLink>
-      </li>
-      <li className="px-5 py-4 rounded-lg">
-        <NavLink
-          to="/my-properties"
-          className={`text-[20px] poppins-semibold pb-2 transition-all duration-300 ease-in-out border-b-4 ${
-            location.pathname === '/my-properties'
-              ? 'text-[#4F46E5] border-[#4F46E5]'
-              : 'text-gray-400 border-transparent'
-          }`}
-        >
-          My Properties
-        </NavLink>
-      </li>
-    </ul>
-  </div>
-</div>
+              <div>
+                <div>
+                  <ul className="flex gap-[20px] border-b border-gray-200">
+                    <li className="px-5 py-4 rounded-lg">
+                      <NavLink
+                        to="/all-properties"
+                        className={`text-[20px] poppins-semibold pb-2 transition-all duration-300 ease-in-out border-b-4 ${location.pathname === '/all-properties'
+                            ? 'text-[#4F46E5] border-[#4F46E5]'
+                            : 'text-gray-400 border-transparent'
+                          }`}
+                      >
+                        All Properties
+                      </NavLink>
+                    </li>
+                    <li className="px-5 py-4 rounded-lg">
+                      <NavLink
+                        to="/my-properties"
+                        className={`text-[20px] poppins-semibold pb-2 transition-all duration-300 ease-in-out border-b-4 ${location.pathname === '/my-properties'
+                            ? 'text-[#4F46E5] border-[#4F46E5]'
+                            : 'text-gray-400 border-transparent'
+                          }`}
+                      >
+                        My Properties
+                      </NavLink>
+                    </li>
+                  </ul>
+                </div>
+              </div>
 
 
               <div className='  w-full p-[24px] flex justify-between'>
                 <h1 className='nunito-sans font-semibold text-[24px]'>Total Policies</h1>
-                <button onClick={()=>{
-                  navigate('/add-properties')
-                }} className="w-[118px] h-[28px] flex items-center justify-center gap-[15px] rounded-[4px] bg-[#714FAE] text-white text-[12px] poppins-regular cursor-pointer">
-                  Add Property <FaPlus className="w-[12px] h-[12px]" />
+                <button
+                  onClick={() => navigate('/add-properties')}
+                  className="w-fit px-4 py-2 flex items-center justify-center gap-2 rounded-md bg-[#9393ff] text-white text-sm font-medium"
+                >
+                  <FaPlus className="w-[14px] h-[14px]" />
+                  Add Property
                 </button>
-
               </div>
               <table className="w-full rounded-[12px]">
                 <thead>
@@ -127,7 +126,7 @@ const MyProperties = () => {
                   </tr>
                 </thead>
                 <tbody className=' ' >
-                  {allProperties.map((property,ind) => {
+                  {allProperties.map((property, ind) => {
                     return (
                       <tr key={ind} className='bg-white '>
                         <td className="p-3 flex items-center gap-2">
@@ -146,8 +145,8 @@ const MyProperties = () => {
                         <td className="p-3 poppins-regular text-[18px]">{property.location.city}</td>
                         <td className="p-3 ">
                           <div className="flex gap-[15px]  items-center">
-                           <button className='bg-[#9393ff] text-white rounded-full w-[40px] h-[40px] flex justify-center items-center cursor-pointer' > <MdOutlineModeEdit className="w-[20px] h-[20px]" /></button>
-                            <button  className='bg-[#9393ff] text-white rounded-full w-[40px] h-[40px] flex justify-center items-center cursor-pointer' onClick={()=>handleDeleteProperty(property._id)}><RiDeleteBinLine className="w-[20px] h-[20px]" /></button>
+                            <button className='bg-[#9393ff] text-white rounded-full w-[40px] h-[40px] flex justify-center items-center cursor-pointer' > <MdOutlineModeEdit className="w-[20px] h-[20px]" /></button>
+                            <button className='bg-[#9393ff] text-white rounded-full w-[40px] h-[40px] flex justify-center items-center cursor-pointer' onClick={() => handleDeleteProperty(property._id)}><RiDeleteBinLine className="w-[20px] h-[20px]" /></button>
                           </div>
                         </td>
                       </tr>
