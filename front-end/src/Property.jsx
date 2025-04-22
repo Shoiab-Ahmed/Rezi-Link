@@ -34,11 +34,13 @@ import { useAuth } from './AuthContext'
 
 
 const Property = () => {
-  const [picture, setPicture] = useState("https://imagecdn.99acres.com/media1/24795/4/495904524M-1717478704466.jpg");
+  const [picture, setPicture] = useState("");
   const [hasPurchased, setHasPurchased] = useState(false);
   const [remainingUnlocks, setRemainingUnlocks] = useState(0);
   const [showContact, setShowContact] = useState(false);
   const [allProperties, setAllProperties] = useState([]);
+  const [staticmap, setStaticmap] = useState("https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3888.1969751763827!2d77.74395297516384!3d12.959244115148914!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bae0df63f36adb7%3A0x64f8cb64c5612c33!2s123%2C%20Whitefield%20Main%20Rd%2C%20Palm%20Meadows%2C%20Siddapura%2C%20Whitefield%2C%20Bengaluru%2C%20Karnataka%20560066!5e0!3m2!1sen!2sin!4v1744206489014!5m2!1sen!2sin")
+
   const params = useParams();
   const { isAuthenticated } = useAuth();
 
@@ -96,7 +98,9 @@ const Property = () => {
   }, [params.id]);
 
   const mainItem = allProperties.filter((item) => item._id === params.id);
-  const maps = mainItem.map((item) => item.location.maps);
+  let maps = mainItem.map((item) => item.location.maps ? item.location.maps : staticmap);
+
+
   const suggestions = allProperties.filter(
     (item) => item.location.city === mainItem[0]?.location.city && item._id !== mainItem[0]?._id
   );
@@ -119,7 +123,7 @@ const Property = () => {
             <div key={item._id} className='flex flex-col w-[95%] mx-auto mt-[30px] gap-[30px] '>
               <div className='flex h-full gap-[20px]'>
                 <div className='w-[60%] flex flex-col gap-[20px] '>
-                  <img src={picture} className='w-full h-[400px] rounded-[9px] object-cover' />
+                  <img src={picture?picture:item.images[0]} className='w-full h-[400px] rounded-[9px] object-cover' />
                   <div className='flex gap-[20px] '>
                     {item.images.map((img, i) => {
                       return (
@@ -263,7 +267,7 @@ const Property = () => {
                   ) : (
                     <div className="border p-6 rounded-2xl bg-[#e8e8ff] shadow-md transition-all duration-300 ease-in-out hover:shadow-lg hover:scale-[1.01]">
                       <h3 className="text-xl font-semibold text-[#3c3c74] mb-4 poppins-semibold">Contact Info</h3>
-                      {item.contacts?.slice(0,3).map((contact, idx) => (
+                      {item.contacts?.slice(0, 3).map((contact, idx) => (
                         <div
                           key={idx}
                           className="mb-4 p-4 rounded-lg bg-white shadow-sm border border-gray-200 transition-all duration-300 ease-in-out hover:shadow-md hover:scale-[1.02]"
@@ -308,7 +312,7 @@ const Property = () => {
 
 
 
-
+              {/* connect form */}
               <h1 className='text-center text-[40px] poppins-bold tracking-[2px]'>Connect With Us</h1>
               <div className='w-[80%] h-[595px] bg-[#f5f3f3]  rounded-[22px] mx-auto flex mt-[50px] '>
                 <div className='w-[545px] mx-auto py-12 flex flex-col justify-between'>
@@ -325,7 +329,7 @@ const Property = () => {
                     <input type="text" name="" id="" placeholder='Name' className=' border-[1px] border-[#313131]/40 px-[20px] py-[13px] rounded-[8px]' />
                     <input type="email" name="" id="" placeholder='Email' className=' border-[1px] border-[#313131]/40 px-[20px] py-[13px] rounded-[8px]' />
                     <input type="text" name="" id="" placeholder='Phone number' className=' border-[1px] border-[#313131]/40 px-[20px] py-[13px] rounded-[8px]' />
-                    <input type="submit" name="" id="" value="Send" className=' text-white bg-[#714FAE] cursor-pointer hover:bg-[#714FAE]/90 px-[20px] py-[13px] rounded-[8px] poppins-semibold text-[16px]' />
+                    <input type="submit" name="" id="" value="Send" className=' text-white bg-[#9393ff] cursor-pointer hover:bg-[#9393ff]/90 px-[20px] py-[13px] rounded-[8px] poppins-semibold text-[16px]' />
 
                   </form>
 
