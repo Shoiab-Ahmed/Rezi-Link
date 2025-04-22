@@ -121,9 +121,7 @@ function Navbar2() {
                 <Link  to={isSeller?`/overview`:`/dashboard`} className="text-[18px] poppins-regular hover:text-[#9393ff] transform hover:-translate-y-1 transition-all hover:text-[20px]">
                   {isSeller ? "OverView" : "Home"}
                 </Link>
-                {isSeller && <Link to="/manage-properties" className="text-[18px] poppins-regular hover:text-[#9393ff] transform hover:-translate-y-1 transition-all hover:text-[20px]">
-                 Manage Properties
-                </Link>  }
+                
                 {isSeller && <Link to="/my-properties" className="text-[18px] poppins-regular hover:text-[#9393ff] transform hover:-translate-y-1 transition-all hover:text-[20px]">
                   My Properties
                 </Link>  }
