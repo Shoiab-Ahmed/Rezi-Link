@@ -7,8 +7,10 @@ import { RiDeleteBinLine } from "react-icons/ri";
 import { MdOutlineModeEdit } from "react-icons/md";
 import { useLocation } from 'react-router-dom';
 import { NavLink } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 
 const MyProperties = () => {
+  const navigate = useNavigate()
   const location = useLocation();
   const [allProperties, setAllProperties] = useState([])
 
@@ -106,8 +108,10 @@ const MyProperties = () => {
 
               <div className='  w-full p-[24px] flex justify-between'>
                 <h1 className='nunito-sans font-semibold text-[24px]'>Total Policies</h1>
-                <button className="w-[118px] h-[28px] flex items-center justify-center gap-[15px] rounded-[4px] bg-[#714FAE] text-white text-[12px] poppins-regular cursor-pointer">
-                  New Policy <FaPlus className="w-[12px] h-[12px]" />
+                <button onClick={()=>{
+                  navigate('/add-properties')
+                }} className="w-[118px] h-[28px] flex items-center justify-center gap-[15px] rounded-[4px] bg-[#714FAE] text-white text-[12px] poppins-regular cursor-pointer">
+                  Add Property <FaPlus className="w-[12px] h-[12px]" />
                 </button>
 
               </div>
