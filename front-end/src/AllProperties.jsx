@@ -81,7 +81,7 @@ const AllProperties = () => {
 
 
               <div className='  w-full p-[24px] flex justify-between'>
-                <h1 className='nunito-sans font-semibold text-[24px]'>Total Policies</h1>
+                <h1 className='nunito-sans font-semibold text-[24px]'>Total Properties</h1>
                 <button
                   onClick={() => navigate('/add-properties')}
                   className="w-fit px-4 py-2 flex items-center justify-center gap-2 rounded-md bg-[#9393ff] text-white text-sm font-medium"

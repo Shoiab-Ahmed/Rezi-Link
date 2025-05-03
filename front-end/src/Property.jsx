@@ -239,11 +239,11 @@ const Property = () => {
                 <div className="w-[35%]">
                   {!showContact ? (
                     !hasPurchased ? (
-                      <div className="bg-yellow-100 border border-yellow-300 p-4 rounded-md text-center">
-                        <p className="font-medium text-yellow-800 flex items-center justify-center gap-2">
+                      <div className="bg-[#9393ff] border border-[]#9393ff] p-4 rounded-md text-center">
+                        <p className="poppins-medium text-black flex items-center justify-center gap-2">
                           <FaLock /> Contact info is locked
                         </p>
-                        <Link to="/pricings" className="text-purple-700 underline">
+                        <Link to="/pricings" className="text-purple-800 underline">
                           Purchase a plan
                         </Link>
                       </div>
@@ -259,7 +259,7 @@ const Property = () => {
                     ) : (
                       <button
                         onClick={handleUnlockContact}
-                        className="bg-purple-600 hover:bg-purple-700 text-white px-6 py-3 rounded-md"
+                        className="bg-[#7b7bfc] hover:bg-[#9393ff] text-white px-6 py-3 rounded-md"
                       >
                         Unlock Contact Info
                       </button>
