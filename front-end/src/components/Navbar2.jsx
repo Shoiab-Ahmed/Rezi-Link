@@ -140,11 +140,11 @@ function Navbar2() {
                   </div>
                 </div>
 }
-                {!isSeller &&  <input
+                {/* {!isSeller &&  <input
                   type="search"
                   placeholder="Search"
                   className="px-3 py-2.5 text-[16px] poppins-regular border rounded-md focus:outline-none focus:ring focus:border-blue-300"
-                /> }
+                /> } */}
                
               </div>
             </div>

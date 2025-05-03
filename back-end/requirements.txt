@@ -3,3 +3,6 @@ pymongo
 dotenv
 werkzeug
 pyjwt
+setuptools
+razorpay
+flask_cors

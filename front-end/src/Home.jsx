@@ -107,19 +107,15 @@ const Home = () => {
         <div >
           <img src={rectangle} alt="rectangle" />
         </div>
-        <div className='px-[63px] py-[40px] w-[611px] h-[302px] bg-[#272727] rounded-[24px]'>
-          <div className='grid grid-cols-2 gap-[30px] text-white text-[36px]'>
-            <button className='flex justify-between text-[36px] poppins-normal'>Elegant <div className='flex justify-center items-center w-[54px] h-[54px]   hover:rounded-full hover:bg-[#A0CAF5]'><MdArrowOutward /></div>
+        <div className='px-[63px] py-[70px]  w-[611px] h-[302px] bg-[#272727] rounded-[24px]'>
+          <div className='grid grid-cols-2 gap-[60px] text-white text-[36px]'>
+            <button className='flex justify-between text-[36px] poppins-normal'>Bangalore <div className='flex justify-center items-center w-[54px] h-[54px]   hover:rounded-full hover:bg-[#A0CAF5]'><MdArrowOutward /></div>
             </button>
-            <button className='flex justify-between poppins-normal'>Casstle<div className='flex justify-center items-center w-[54px] h-[54px]   hover:rounded-full hover:bg-[#A0CAF5]'><MdArrowOutward /></div>
+            <button className='flex justify-between poppins-normal'>Mumbai<div className='flex justify-center items-center w-[54px] h-[54px]   hover:rounded-full hover:bg-[#A0CAF5]'><MdArrowOutward /></div>
             </button>
-            <button className='flex justify-between poppins-normal'>Custle <div className='flex justify-center items-center w-[54px] h-[54px]   hover:rounded-full hover:bg-[#A0CAF5]'><MdArrowOutward /></div>
+            <button className='flex justify-between poppins-normal'>Hyderabad <div className='flex justify-center items-center w-[54px] h-[54px]   hover:rounded-full hover:bg-[#A0CAF5]'><MdArrowOutward /></div>
             </button>
-            <button className='flex justify-between poppins-normal'>Modern<div className='flex justify-center items-center w-[54px] h-[54px]   hover:rounded-full hover:bg-[#A0CAF5]'><MdArrowOutward /></div>
-            </button>
-            <button className='flex justify-between poppins-normal'>American<div className='flex justify-center items-center w-[54px] h-[54px]   hover:rounded-full hover:bg-[#A0CAF5]'><MdArrowOutward /></div>
-            </button>
-            <button className='flex justify-between poppins-normal'>Culture<div className='flex justify-center items-center w-[54px] h-[54px]   hover:rounded-full hover:bg-[#A0CAF5]'><MdArrowOutward /></div>
+            <button className='flex justify-between poppins-normal'>Delhi<div className='flex justify-center items-center w-[54px] h-[54px]   hover:rounded-full hover:bg-[#A0CAF5]'><MdArrowOutward /></div>
             </button>
 
           </div>
@@ -143,7 +139,7 @@ const Home = () => {
           <p className='bg-white text-black relative m-[30px] float-end w-[127px] h-[54px] rounded-[12px] justify-center flex items-center text-[28px] poppins-normal'>$1.5m</p>
           <div className=' w-full m-[30px] relative top-[300px] '>
           <h1 className='whitespace-nowrap w-full text-[32px] poppins-medium'>Elegan stone home</h1>
-          <p className=' w-full text-[24px] poppins-normal'>New York, USA</p>
+          <p className=' w-full text-[24px] poppins-normal'>Bangalore, India</p>
           </div>
 
 
@@ -152,7 +148,7 @@ const Home = () => {
           <p className='bg-white text-black relative m-[30px] float-end w-[127px] h-[54px] rounded-[12px] justify-center flex items-center text-[28px] poppins-normal'>$1.5m</p>
           <div className=' w-full m-[30px] relative top-[300px] '>
           <h1 className='whitespace-nowrap w-full text-[32px] poppins-medium'>Elegan stone home</h1>
-          <p className=' w-full text-[24px] poppins-normal'>New York, USA</p>
+          <p className=' w-full text-[24px] poppins-normal'>Bangalore, India</p>
           </div>
 
 
@@ -162,7 +158,7 @@ const Home = () => {
           <p className='bg-white text-black relative m-[30px] float-end w-[127px] h-[54px] rounded-[12px] justify-center flex items-center text-[28px] poppins-normal'>$1.5m</p>
           <div className=' w-full m-[30px] relative top-[300px] '>
           <h1 className='whitespace-nowrap w-full text-[32px] poppins-medium'>Elegan stone home</h1>
-          <p className=' w-full text-[24px] poppins-normal'>New York, USA</p>
+          <p className=' w-full text-[24px] poppins-normal'>Mumbai, India</p>
           </div>
 
 
@@ -173,7 +169,7 @@ const Home = () => {
           <p className='bg-white text-black relative m-[30px] float-end w-[127px] h-[54px] rounded-[12px] justify-center flex items-center text-[28px] poppins-normal'>$1.5m</p>
           <div className=' w-full m-[30px] relative top-[300px] '>
           <h1 className='whitespace-nowrap w-full text-[32px] poppins-medium'>Elegan stone home</h1>
-          <p className=' w-full text-[24px] poppins-normal'>New York, USA</p>
+          <p className=' w-full text-[24px] poppins-normal'>Mumbai, India</p>
           </div>
 
 
@@ -182,7 +178,7 @@ const Home = () => {
           <p className='bg-white text-black relative m-[30px] float-end w-[127px] h-[54px] rounded-[12px] justify-center flex items-center text-[28px] poppins-normal'>$1.5m</p>
           <div className=' w-full m-[30px] relative top-[300px] '>
           <h1 className='whitespace-nowrap w-full text-[32px] poppins-medium'>Elegan stone home</h1>
-          <p className=' w-full text-[24px] poppins-normal'>New York, USA</p>
+          <p className=' w-full text-[24px] poppins-normal'>Delhi, India</p>
           </div>
 
 
@@ -191,7 +187,7 @@ const Home = () => {
           <p className='bg-white text-black relative m-[30px] float-end w-[127px] h-[54px] rounded-[12px] justify-center flex items-center text-[28px] poppins-normal'>$1.5m</p>
           <div className=' w-full m-[30px] relative top-[300px] '>
           <h1 className='whitespace-nowrap w-full text-[32px] poppins-medium'>Elegan stone home</h1>
-          <p className=' w-full text-[24px] poppins-normal'>New York, USA</p>
+          <p className=' w-full text-[24px] poppins-normal'>Hyderabad, India</p>
           </div>
 
 
