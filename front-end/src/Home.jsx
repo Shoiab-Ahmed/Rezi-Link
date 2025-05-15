@@ -255,7 +255,7 @@ const Home = () => {
             <p className='text-[#272727B2]'>Terms of Use</p>
             <p className='text-[#272727B2]'>Privacy Policy</p>
             <p className='text-[#272727B2]'>Security Policy</p>
-            <p className='text-[#272727B2]'>Cookie Setings</p>
+            <p className='text-[#272727B2]'>Cookie Settings</p>
             </div>
 
 
@@ -267,7 +267,7 @@ const Home = () => {
 
       </div>
       <div className='w-full border-t-[1px] border-[#272727B2] p-[24px]'>
-        <p className='text-center poppins-medium'>© Copyright 2022 Rezi-Link. All rights reserved.</p>
+        <p className='text-center poppins-medium'>© Copyright 2025 Rezi-Link. All rights reserved.</p>
       </div>
 
 
