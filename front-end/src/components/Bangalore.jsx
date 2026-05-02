@@ -104,6 +104,7 @@ const Bangalore = () => {
 
 
         </div>
+        
         <Footer />
 
       </div> : <div className='flex justify-center items-center h-screen'>Should be logged in to see this page</div>
